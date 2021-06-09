@@ -142,3 +142,63 @@ function playGame(){
  playGame();//rock scissors
             //Rock wins!
 
+//JS Functions 3 - Sleep Debt Calculator *********
+
+const getSleepHours = (day) => {
+  if (day === "monday") {
+    return 6;
+  } else if (day === "tuesday") {
+    return 7;
+  } else if (day === "wednesday") {
+    return 6;
+  } else if (day === "thursday") {
+    return 6;
+  } else if (day === "friday") {
+    return 7;
+  } else if (day === "saturday") {
+    return 9;
+  } else if (day === "sunday") {
+    return 8;
+  } else {
+    return "Wrong input!";
+  }
+};
+//console.log(getSleepHours("sunday"));
+//getSleepHours("sunday");
+const getActualSleepHours = () => {
+  const sum =
+    getSleepHours("monday") +
+    getSleepHours("tuesday") +
+    getSleepHours("wednesday") +
+    getSleepHours("thursday") +
+    getSleepHours("friday") +
+    getSleepHours("saturday") +
+    getSleepHours("sunday");
+  return sum;
+};
+//console.log(getActualSleepHours());
+const getIdealSleepHours = () => {
+  idealHours = 8;
+  return idealHours * 7;
+};
+//console.log(getIdealSleepHours());
+
+const calculateSleepDebt = () => {
+  let actualSleepHours = getActualSleepHours();
+  let idealSleepHours = getIdealSleepHours();
+  if (actualSleepHours === idealSleepHours) {
+    console.log("You got the perfect amount of sleep.");
+  } else if (actualSleepHours > idealSleepHours) {
+    let overSleep = actualSleepHours - idealSleepHours;
+    console.log(overSleep);
+    console.log(
+      `You got more sleep than needed. Your sleep debt is ${overSleep} hours.`
+    );
+  } else {
+    const lackOfSleep = idealSleepHours - actualSleepHours;
+    console.log(
+      `You should get some rest. Your lack of sleep is ${lackOfSleep} hours.`
+    );
+  }
+};
+calculateSleepDebt(); //You should get some rest. Your lack of sleep is 7 hours.                                              
