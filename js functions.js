@@ -83,3 +83,62 @@ function raceTime(userAge, registeredEarly) {
 raceTime(35, false); //Your race starts at 11:00 am, and your race number is 273. Good luck!
 raceTime(24, true); //Your race starts at 9:30 am, and your race number is 1209. Good luck!
 raceTime(16, true); //You are too young to run a race.
+
+//JS Functions 2 - Rock, Paper, or Scissors *******
+
+const getUserChoice=userInput=> {
+   input = userInput.toLowerCase();
+  if (input === "rock" || input === "paper" ||input === "scissors") {
+    return input;
+  } else console.log("Wrong input!");
+};
+ //getUserChoice("FAsdg");
+
+const getComputerChoice = () => {
+  number = Math.floor(Math.random() * 3);
+  if (number === 0) {
+    return "rock";
+  } else if (number === 1) {
+    return "paper";
+  } else {
+    return "scissors";
+  }
+  console.log(number);
+};
+//getComputerChoice();
+//console.log(getComputerChoice());
+
+const determineWinner = (userChoice, computerChoice) => {
+  if (userChoice === computerChoice) {
+    return "the game was a tie.";
+  } else if (userChoice === "rock") {
+    if (computerChoice === "scissors") {
+      return "Rock wins!";
+    } else {
+      return "Paper wins!";
+    }
+  } else if (userChoice === "paper") {
+    if (computerChoice === "rock") {
+      return "Paper wins!";
+    } else {
+      return "Scissors win!";
+    }
+  } else if (userChoice === "scissors") {
+    if (computerChoice === "paper") {
+      return "Scissors win!";
+    } else {
+      return "Rock wins!";
+    }
+  }
+};
+//determineWinner("scissors", "paper");
+//console.log(determineWinner("rock", "paper"));
+function playGame(){
+  const userChoice = getUserChoice('Rock');
+  const computerChoice = getComputerChoice();
+  console.log(userChoice, computerChoice);
+  console.log(determineWinner(userChoice, computerChoice));
+}
+ playGame();//rock scissors
+            //Rock wins!
+
